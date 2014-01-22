@@ -11,6 +11,17 @@
 
 #include "cocos2d.h"
 
+#include "Box2d/Box2d.h"
+
+
+using namespace cocos2d;
+
+
+#define PTM_TATIO 32
+#define WORLD_TO_SCREEN(n) ((n) * PTM_TATIO)
+
+
+
 class GameScene : public cocos2d::Layer
 {
 public:
@@ -24,6 +35,10 @@ public:
     void menuCloseCallback(Object* pSender);
     
     void menuBackCallback(Object* pSender);
+    
+    void tick(float dt);
+    void createStar(Point p);
+    bool touchBegan(Touch* touch, Event* event);
 
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);

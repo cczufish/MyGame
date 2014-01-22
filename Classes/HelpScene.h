@@ -26,6 +26,8 @@ public:
     void menuBackCallback(Object* pSender);
 
     
+    
+    
     // implement the "static create()" method manually
     CREATE_FUNC(HelpScene);
 };

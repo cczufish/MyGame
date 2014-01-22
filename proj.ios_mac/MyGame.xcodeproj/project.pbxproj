@@ -71,6 +71,7 @@
 		589010A6188FA52E006C8DCB /* Laser_Shoot5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 589010A5188FA52E006C8DCB /* Laser_Shoot5.wav */; };
 		589010AE188FA624006C8DCB /* Powerup6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 589010AD188FA624006C8DCB /* Powerup6.wav */; };
 		589010B0188FA774006C8DCB /* bg0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 589010AF188FA774006C8DCB /* bg0.mp3 */; };
+		589010B2188FAD32006C8DCB /* xingxin.png in Resources */ = {isa = PBXBuildFile; fileRef = 589010B1188FAD32006C8DCB /* xingxin.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -309,6 +310,7 @@
 		589010A5188FA52E006C8DCB /* Laser_Shoot5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Laser_Shoot5.wav; sourceTree = "<group>"; };
 		589010AD188FA624006C8DCB /* Powerup6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Powerup6.wav; sourceTree = "<group>"; };
 		589010AF188FA774006C8DCB /* bg0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg0.mp3; sourceTree = "<group>"; };
+		589010B1188FAD32006C8DCB /* xingxin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xingxin.png; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -514,6 +516,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				589010B1188FAD32006C8DCB /* xingxin.png */,
 				589010AF188FA774006C8DCB /* bg0.mp3 */,
 				589010AD188FA624006C8DCB /* Powerup6.wav */,
 				589010A5188FA52E006C8DCB /* Laser_Shoot5.wav */,
@@ -742,6 +745,7 @@
 				5890109F188F8C95006C8DCB /* help.png in Resources */,
 				589010B0188FA774006C8DCB /* bg0.mp3 in Resources */,
 				589010A2188F90C9006C8DCB /* back.png in Resources */,
+				589010B2188FAD32006C8DCB /* xingxin.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,

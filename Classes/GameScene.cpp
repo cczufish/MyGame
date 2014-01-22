@@ -8,6 +8,9 @@
 
 #include "GameScene.h"
 
+b2World* world;
+b2Vec2 gravity;
+
 USING_NS_CC;
 
 Scene* GameScene::createScene()
@@ -62,6 +65,20 @@ bool GameScene::init()
     // add a label shows "Hello World"
     // create and initialize a label
     
+    
+    gravity.Set(0.0f, - WORLD_TO_SCREEN(9.8));
+    bool doSleep = true;
+    world = new b2World(gravity);
+    world->SetAllowSleeping(doSleep);
+    
+    auto touchListener = EventListenerTouchOneByOne::create();
+    touchListener->onTouchBegan = CC_CALLBACK_2(GameScene::touchBegan,this);
+    getEventDispatcher()->addEventListenerWithFixedPriority(touchListener, 100);
+    
+    schedule(schedule_selector(GameScene::tick));
+    
+    
+    
     auto label = LabelTTF::create("GameScene", "Arial", 24);
     
     // position the label on the center of the screen
@@ -92,6 +109,68 @@ bool GameScene::init()
     return true;
 }
 
+bool GameScene::touchBegan(Touch* touch, Event* event)
+{
+    GameScene:;createStar(touch->getLocation());
+    
+    
+    return true;
+}
+
+void GameScene::createStar(Point p)
+{
+    auto starSprite = Sprite::create("xingxin.png");
+    starSprite->setPosition(p);
+    this->addChild(starSprite,0);
+    
+    b2BodyDef starBodyDef;
+    starBodyDef.type = b2_dynamicBody;
+    starBodyDef.position = b2Vec2(starSprite->getPositionX(),starSprite->getPositionY());
+    starBodyDef.userData = starSprite;
+    
+    
+    auto starBody = world->CreateBody(&starBodyDef);
+    b2CircleShape circle;
+    circle.m_radius = WORLD_TO_SCREEN(0.6);
+    
+    
+    b2FixtureDef starFixDef;
+    starFixDef.shape = &circle;
+    starFixDef.density = 1.0f;
+    starFixDef.friction = 0.6f;
+    starFixDef.restitution = 0.8f;
+    
+    
+    starBody->CreateFixture(&starFixDef);
+    
+    
+}
+
+
+void GameScene::tick(float dt)
+{
+    int velocityIterations = 8;
+    int positionIterations = 3;
+    
+    world->Step(dt, velocityIterations, positionIterations);
+    for(auto b = world->GetBodyList();b;b = b->GetNext())
+    {
+        if (b->GetUserData() != NULL) {
+            auto myActor = ((Sprite*) b ->GetUserData())
+            ;
+            myActor->setPosition(Point(b->GetPosition().x,b->GetPosition().y));
+            myActor->setRotation(-1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
+            
+            if (myActor->getPositionY() < WORLD_TO_SCREEN(1) ||
+                myActor->getPositionX() > Director::getInstance()->getVisibleSize().width+WORLD_TO_SCREEN(1)) {
+                removeChild(myActor);
+                world->DestroyBody(b);
+            }
+                                 
+        }
+    }
+    
+}
 void GameScene::menuBackCallback(Object* pSender)
 {
     Director::getInstance()->popScene();
