@@ -83,7 +83,6 @@ bool HelpScene::init()
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
-    
     auto backButton = MenuItemImage::create("back.png","back.png",CC_CALLBACK_1(HelpScene::menuBackCallback, this));
     
     backButton->setPosition(Point(120,200));
