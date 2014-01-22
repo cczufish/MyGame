@@ -101,7 +101,7 @@ bool MainMenuScene::init()
     helpButtonMenu->setPosition(Point::ZERO);
     this->addChild(helpButtonMenu, 1);
     
-    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Powerup6.wav");
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("bg0.mp3");
     
     return true;
 }
