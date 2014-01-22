@@ -9,8 +9,7 @@
 #include "MainMenuScene.h"
 #include "GameScene.h"
 #include "HelpScene.h"
-
-
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -102,6 +101,8 @@ bool MainMenuScene::init()
     helpButtonMenu->setPosition(Point::ZERO);
     this->addChild(helpButtonMenu, 1);
     
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("Powerup6.wav");
+    
     return true;
 }
 
@@ -120,6 +121,9 @@ void MainMenuScene::menuHelpCallback(Object* pSender)
 
 void MainMenuScene::menuCloseCallback(Object* pSender)
 {
+    
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("Laser_Shoot5.wav");
+
     Director::getInstance()->end();
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
